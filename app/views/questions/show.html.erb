@@ -1,5 +1,21 @@
-<h1><%= @question.title %></h1>
-
+<h1 class="lgn"><%= @question.title %></h1>
+<% @question.tags.each do |tag| %>
+  <h6 class="tag"><%= tag.category %></h6>
+<% end %>
 <p>
-  <%= @question.body %>
+  <%= simple_format(@question.body) %>
 </p>
+<%= link_to "Comment", question_path(@question) %></p>
+<%= link_to "Answer", new_question_answer_path(@question), class: "btn btn-default lgn" %>
+
+<% if current_user.email == "austin@austin.com" %>
+  <%= link_to "Delete", question_path(@question), :data => {:method => "delete"} %></p>
+<% end %>
+
+<h3>Answers</h3>
+
+<% @question.answers.each do |answer| %>
+  <p>
+    <%= answer.body %>
+  </p>
+<% end %>

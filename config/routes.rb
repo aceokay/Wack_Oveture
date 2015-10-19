@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :home
   resources :users
-  resources :questions
+  resources :questions do
+    resources :answers
+  end
   resources :tags
 end
