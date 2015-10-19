@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
-  belongs_to :users
-  belongs_to :questions
-  belongs_to :answers
+  belongs_to :user
+  belongs_to :question
+  belongs_to :answer
   validates :body, :presence => true
 end
