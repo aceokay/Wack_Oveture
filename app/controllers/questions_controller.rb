@@ -1,0 +1,29 @@
+class QuestionsController < ApplicationController
+  def new
+    @question = Question.new
+    @tags = Tag.all
+  end
+
+  def create
+    @question = Question.new(question_params)
+    tag_ids = params[:question][:tag]
+    if @question.save
+      if tag_ids != nil
+        if tag_ids.length > 0
+          tag_ids.each do |tag_id|
+            tag = Tag.find(tag_id)
+            @question.tags.push(tag)
+          end
+        end
+      end
+      redirect_to home_index_path
+    else
+      render :new
+    end
+  end
+
+  private
+  def question_params
+    params.require(:question).permit(:title, :body)
+  end
+end
