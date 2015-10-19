@@ -1,24 +1,31 @@
 <h1 class="lgn"><%= @question.title %></h1>
+
 <% @question.tags.each do |tag| %>
   <h6 class="tag"><%= tag.category %></h6>
 <% end %>
+
 <p>
   <%= simple_format(@question.body) %>
 </p>
+<!-- We are HERE! -->
+<!-- <% @question.comments.each do |comment| %>
+  <p><%= comment.body %></p>
+<% end %> -->
 
 <% if current_user %>
-  <%= link_to "Comment", question_path(@question) %></p>
-  <%= link_to "Answer", new_question_answer_path(@question), class: "btn btn-default lgn" %>
+  <%= link_to "Comment", new_question_comment_path(@question), class: "btn btn-default lgn pull-left" %></p>
+  <%= link_to "Answer", new_question_answer_path(@question), class: "btn btn-default lgn pull-left" %>
   <% if current_user.email == "austin@austin.com" %>
     <%= link_to "Delete", question_path(@question), :data => {:method => "delete"} %>
   <% end %>
 <% end %>
+
+<br>
+
 <h3>Answers</h3>
 
 <% @question.answers.each do |answer| %>
-  <p>
-    <%= answer.body %>
-  </p>
+  <p><%= answer.body %></p>
   <% if current_user %>
     <% if current_user.id == answer.user_id || current_user.email == "austin@austin.com"%>
       <%= link_to "Delete", question_answer_path(@question, answer), :data => {:method => "delete"} %>
