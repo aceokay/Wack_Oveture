@@ -2,8 +2,10 @@ class User < ActiveRecord::Base
   attr_accessor :password
   has_many :questions
   has_many :answers
-  has_many :tags
+  has_many :comments
   validates_confirmation_of :password
+  validates :name, :presence => true
+  validates :email, :presence => true
   before_save :encrypt_password
 
   def encrypt_password
