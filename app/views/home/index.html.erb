@@ -1,11 +1,10 @@
 <h2 class="lgn"><small>wack</small>oveture</h2>
 
 <% if current_user %>
-  <%= link_to "Log Out", log_out_path, class: "btn btn-danger pull-right lgn"  %>
-  <%= link_to "Ask Question", new_question_path, class: "btn btn-default pull-right lgn" %>
   <% if current_user.email == "austin@austin.com" %>
     <%= link_to "Add Tag", new_tag_path, class: "btn btn-default pull-right lgn" %>
   <% end %>
+  <%= link_to "Ask Question", new_question_path, class: "btn btn-default pull-right lgn" %>
 <% end %>
 
 <div class="row">

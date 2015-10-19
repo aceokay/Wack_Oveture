@@ -19,6 +19,7 @@ class QuestionsController < ApplicationController
             @question.tags.push(tag)
           end
         end
+        current_user.questions.push(@question)
       end
       redirect_to home_index_path
     else

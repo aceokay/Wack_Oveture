@@ -1,0 +1,9 @@
+<h3 class="pull-right"><%= @user.name %></h3>
+<br>
+<br>
+<hr>
+<ul>
+  <% @user.questions.each do |question| %>
+    <li><%= question.title %></li>
+  <% end %>
+</ul>
