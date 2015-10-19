@@ -1,7 +1,17 @@
+<h2 class="lgn">Wack Oveture</h2>
+
 <% if current_user %>
-  <%= link_to "Ask Question", new_question_path %>
+  <%= link_to "Ask Question", new_question_path, class: "btn btn-default pull-right btn-lgn" %>
 <% end %>
 
+<div class="row">
+  <div class="col-md-2">Top Questions</div>
+  <hr>
+</div>
 <% @questions.each do |question| %>
-  <%= link_to question.title, question_path(question) %>
+  <div class="row">
+    <div class="col-md-2">Answer Counter</div>
+    <div class="col-md-4"><%= link_to question.title, question_path(question) %></div>
+    <div class="col-md-2">Something over here</div>
+  </div>
 <% end %>
