@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :home
   resources :users
   resources :questions
+  resources :tags
 end
