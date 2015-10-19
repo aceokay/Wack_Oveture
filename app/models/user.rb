@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessor :password
+  has_many :questions
+  has_many :answers
+  has_many :tags
   validates_confirmation_of :password
   before_save :encrypt_password
 
