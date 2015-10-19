@@ -1,10 +1,20 @@
 <h1>Sign Up</h1>
 <%=form_for User.new do |f| %>
-<%=f.label :email %>
-<%=f.text_field :email %>
-<%=f.label :password %>
-<%=f.password_field :password %>
-<%=f.label :password_confirmation %>
-<%=f.password_field :password_confirmation %>
-<%=f.submit "Sign Up" %>
+  <div class="form-group">
+    <%=f.label "Display Name" %>
+    <%=f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%=f.label "Email (required, but never shown)" %>
+    <%=f.text_field :email, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%=f.label :password %>
+    <%=f.password_field :password, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%=f.label "Confirm Password" %>
+    <%=f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+  <%=f.submit "Sign Up", class: "btn btn-default center-block" %>
 <%end%>
