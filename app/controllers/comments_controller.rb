@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to question_path(@question)
     else
-      render :new
+      redirect_to new_question_comment_path(@question)
     end
   end
 
