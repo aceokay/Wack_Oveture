@@ -1,7 +1,10 @@
 <h2 class="lgn"><small>wack</small>oveture</h2>
 
 <% if current_user %>
-  <% if current_user.email == "austin@austin.com" %>
+<p>
+  <%= current_user.name %>
+</p>
+  <% if current_user.admin == true %>
     <%= link_to "Add Tag", new_tag_path, class: "btn btn-default pull-right lgn" %>
   <% end %>
   <%= link_to "Ask Question", new_question_path, class: "btn btn-default pull-right lgn" %>

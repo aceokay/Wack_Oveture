@@ -8,6 +8,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    if User.all.length == 0
+      @user.admin = true
+    end
+
     if @user.save
       flash[:notice] = "Welcome to the Wack Oveture!"
       redirect_to "/"
