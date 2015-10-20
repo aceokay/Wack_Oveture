@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     end
 
     if @user.save
-      flash[:notice] = "Welcome to the Wack Oveture!"
+      UserMailer.signup_confirmation(@user).deliver
       redirect_to "/"
     else
       flash[:alert] = "There was a problem creating your account. Please try again."
