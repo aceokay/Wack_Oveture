@@ -9,10 +9,10 @@ describe User do
   it { should validate_presence_of :email }
   it { should validate_uniqueness_of :email }
 
-  it 'is not admin if the first person is already saved' do
+  it 'is admin if the first person saved' do
     user = FactoryGirl.create(:user)
     user.save
-    expect(user.admin).to eq(nil)
+    expect(user.admin).to eq(true)
   end
 
   it 'encrypts a given password and builds a password_salt' do

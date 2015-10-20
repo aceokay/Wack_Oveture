@@ -22,4 +22,10 @@ FactoryGirl.define do
   factory(:comment) do
     body("I agree wit chu")
   end
+
+  factory(:tag) do
+    sequence :category do |n|
+      (n + rand(100000) + rand(n)).to_s + "deezl tru"
+    end
+  end
 end

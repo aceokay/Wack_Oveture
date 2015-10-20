@@ -17,7 +17,7 @@ describe "User sign-up and login path" do
     expect(page).to have_content "Email"
   end
 
-  it "adds a user, logs inm and logs out" do
+  it "adds a user, logs in and logs out" do
     visit '/'
     click_on "Sign Up"
     fill_in 'Display Name', :with => "Deezl"
