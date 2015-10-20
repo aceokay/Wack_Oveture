@@ -1,11 +1,11 @@
 <h1>Sign Up</h1>
 <%=form_for User.new do |f| %>
   <div class="form-group">
-    <%=f.label "Display Name" %>
+    <%=f.label :name, "Display Name" %>
     <%=f.text_field :name, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%=f.label "Email (required, but never shown)" %>
+    <%=f.label :email, "Email (required, but never shown)" %>
     <%=f.text_field :email, class: "form-control" %>
   </div>
   <div class="form-group">
@@ -13,8 +13,8 @@
     <%=f.password_field :password, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%=f.label "Confirm Password" %>
+    <%=f.label :password_confirmation, "Confirm Password" %>
     <%=f.password_field :password_confirmation, class: "form-control" %>
   </div>
-  <%=f.submit "Sign Up", class: "btn btn-default center-block" %>
+  <%=f.submit "Confirm Sign Up", class: "btn btn-default center-block" %>
 <%end%>

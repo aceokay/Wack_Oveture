@@ -6,4 +6,9 @@ FactoryGirl.define do
     end
     password("cheese")
   end
+
+  factory(:question) do
+    title('Hello?')
+    body("What it do?")
+  end
 end
