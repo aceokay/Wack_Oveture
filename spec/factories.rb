@@ -5,6 +5,7 @@ FactoryGirl.define do
       (n + rand(100000)).to_s + "@example.com"
     end
     password("cheese")
+    admin(true)
   end
 
   factory(:question) do

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     end
 
     if @user.save
-      UserMailer.signup_confirmation(@user).deliver
+      UserMailer.signup_confirmation(@user).deliver_now
       redirect_to "/"
     else
       flash[:alert] = "There was a problem creating your account. Please try again."
