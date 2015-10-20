@@ -8,5 +8,25 @@ describe User do
   it { should validate_presence_of :name }
   it { should validate_presence_of :email }
   it { should validate_uniqueness_of :email }
-  # it { should use_before_action :encrypt_password }
+
+  it 'is not admin if the first person is already saved' do
+    user = FactoryGirl.create(:user)
+    user.save
+    expect(user.admin).to eq(nil)
+  end
+
+  it 'encrypts a given password and builds a password_salt' do
+    user = FactoryGirl.create(:user)
+    password = user.password
+    user.save
+    expect(user.password_hash).to_not eq(password)
+  end
+
+  it 'authenticates a users given password' do
+    user = FactoryGirl.create(:user)
+    password = user.password
+    email = user.email
+    user.save
+    expect(User.authenticate(email, password)).to eq(user)
+  end
 end
