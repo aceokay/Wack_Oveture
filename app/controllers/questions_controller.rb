@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(question_params)
+    @question = current_user.questions.new(question_params)
     tag_ids = params[:question][:tag]
     if @question.save
       if tag_ids != nil

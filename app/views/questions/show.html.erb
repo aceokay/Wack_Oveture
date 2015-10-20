@@ -7,10 +7,10 @@
 <p>
   <%= simple_format(@question.body) %>
 </p>
-<!-- We are HERE! -->
-<!-- <% @question.comments.each do |comment| %>
+
+<% @question.comments.each do |comment| %>
   <p><%= comment.body %></p>
-<% end %> -->
+<% end %>
 
 <% if current_user %>
   <%= link_to "Comment", new_question_comment_path(@question), class: "btn btn-default lgn pull-left" %></p>
