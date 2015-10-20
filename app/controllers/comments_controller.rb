@@ -3,8 +3,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new
     if params[:question_id]
       @item = Question.find(params[:question_id])
-    elsif params[:answer_id]
-      @item = Answer.find(params[:answer_id])
+    # elsif params[:answer_id]
+    #   @item = Answer.find(params[:answer_id])
     end
   end
 

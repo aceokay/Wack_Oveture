@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
       end
       redirect_to home_index_path
     else
-      render :new
+      redirect_to new_user_question_path(current_user)
     end
   end
 

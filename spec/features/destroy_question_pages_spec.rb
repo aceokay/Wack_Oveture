@@ -1,10 +1,9 @@
 require 'rails_helper'
 
-describe "User added answer path" do
+describe "User adds question path" do
   user = FactoryGirl.create(:user)
   question = FactoryGirl.create(:question)
-  answer = FactoryGirl.create(:answer)
-  it "adds a answer to a comment" do
+  it "deletes a question" do
     visit '/'
     click_on "Sign Up"
     fill_in 'Display Name', :with => user.name
@@ -17,10 +16,7 @@ describe "User added answer path" do
     fill_in 'Password', :with => user.password
     click_on "Log in"
     click_on question.title
-    click_on "Answer"
-    fill_in 'Answer', :with => answer.body
-    click_on "Submit"
-    click_on "Delete Answer"
-    expect(page).not_to have_content answer.body
+    click_on "Delete Question"
+    expect(page).not_to have_content question.title
   end
 end

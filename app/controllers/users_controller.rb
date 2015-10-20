@@ -8,9 +8,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if User.all.length == 0
-      @user.admin = true
-    end
+    # if User.all.length == 0
+    #   @user.admin = true
+    # end
 
     if @user.save
       UserMailer.signup_confirmation(@user).deliver_now
