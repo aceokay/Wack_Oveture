@@ -13,6 +13,7 @@ describe "User sign-up and login path" do
     fill_in 'Email', :with => "deezl@earthlink.com"
     fill_in 'Password', :with => "lzeed"
     click_on "Log in"
-    expect(page).to have_content "Profile"
+    click_on "Profile"
+    expect(page).to have_content "Deezl"
   end
 end
